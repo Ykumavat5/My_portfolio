@@ -5,7 +5,12 @@ const Contact = () => (
 
     <div className="space-y-3 text-lg">
       <p><strong>Email:</strong> <a className="text-teal-600 hover:underline" href="mailto:yogesh@example.com">yogeshkumavat42615@gmail.com</a></p>
-      <p><strong>Phone:</strong> +91-9730934457</p>
+      <p><strong>Phone:</strong>{" "}
+        <a className="text-teal-600 hover:underline" href="tel:+919730934457">
+          +91-9730934457
+        </a>
+      </p>
+
       <p>
         <strong>LinkedIn:</strong>{' '}
         <a
