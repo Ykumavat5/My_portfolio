@@ -17,7 +17,7 @@ const About = () => (
         I'm a <span className="text-teal-600 font-medium">Full Stack Developer</span> with 
         <span className="font-semibold"> 2+ years of experience</span> building dynamic and scalable web applications using
         <span className="text-teal-600 font-medium"> Laravel (PHP)</span>.
-        <span className="text-teal-600 font-medium"> MERN stack (MongoDB, Express, React, Node.js)</span> and
+        <span className="text-teal-600 font-medium"> MERN stack (MongoDB, Express, React, Node.js)</span> 
         <br /><br />
         I specialize in
         <span className="text-teal-600 font-medium"> REST API development</span>,
