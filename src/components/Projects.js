@@ -6,6 +6,7 @@ const projects = [
     id: 1,
     name: "live-project-kwick",
     title: "Kwick Travels (Live Website & Admin Panel)",
+    image: "/My_portfolio/images/projects/live-project-kwick.png",
     stack: [
       "Laravel",
       "PHP",
@@ -21,6 +22,7 @@ const projects = [
     id: 2,
     name: "live-project-athena-flower",
     title: "Flower E-commerce (Admin Panel & APIs)",
+    image: "/My_portfolio/images/projects/live-project-athena-flower.png",
     stack: ["Node.js",
       "Express.js",
       "Laravel",
@@ -32,6 +34,7 @@ const projects = [
     id: 3,
     name: "live-project-retreat-india",
     title: "Retreat India (Live Website & Admin Panel)",
+    image: "/My_portfolio/images/projects/live-project-retreat-india.png",
     stack: ["Laravel",
       "PHP",
       "MySQL",
@@ -44,6 +47,7 @@ const projects = [
     id: 4,
     name: "live-project-hireoneway",
     title: "HireOneWay cabs (Live Website & Admin Panel)",
+    image: "/My_portfolio/images/projects/live-project-hireoneway.png",
     stack: ["Laravel",
       "PHP",
       "MySQL",
@@ -55,6 +59,7 @@ const projects = [
     id: 5,
     name: "live-project-matrix",
     title: "Matrix Cab (Website & Admin Panel)",
+    image: "/My_portfolio/images/projects/live-project-matrix.png",
     stack: ["Laravel",
       "PHP",
       "MySQL",
@@ -68,6 +73,7 @@ const projects = [
     id: 6,
     name: "live-project-wellness-nature-cure",
     title: "Wellness Nature Cure (Website & Admin Panel)",
+    image: "/My_portfolio/images/projects/live-project-wellness-nature-cure.png",
     stack: ["Laravel",
       "PHP",
       "MySQL",
@@ -79,6 +85,7 @@ const projects = [
     id: 7,
     name: "msc-project",
     title: "MSc IT Project – E-commerce Admin Dashboard & Mobile App",
+    image: "/My_portfolio/images/projects/msc-project.png",
     stack: ["Laravel",
       "Flutter",
       "REST APIs",
@@ -92,6 +99,7 @@ const projects = [
     id: 8,
     name: "bsc-project",
     title: "BSc IT Project – IoT Radar Detection System",
+    image: "/My_portfolio/images/projects/bsc-project.png",
     stack: ["NodeMCU",
       "C++",
       "IoT",
@@ -140,33 +148,49 @@ const Projects = () => {
               <Link
                 to={`/My_portfolio/project/${project.name}`}
                 key={project.id}
-                className="bg-white rounded-xl border p-6 shadow-md hover:shadow-xl hover:-translate-y-1 transition-transform duration-300 text-left block snap-start flex-shrink-0"
+                className="bg-white rounded-xl border shadow-md hover:shadow-xl hover:-translate-y-1 transition-transform duration-300 text-left block snap-start flex-shrink-0 overflow-hidden"
                 style={{
                   // 3 cards on lg, 2 on md, 1 on sm
                   width: "clamp(280px, calc(33.333% - 22px), 360px)",
                   minWidth: "280px",
                 }}
               >
-                <h3 className="text-xl font-semibold text-teal-600 mb-2">
-                  {project.title}
-                </h3>
-
-                <div className="flex flex-wrap gap-2 mb-3">
-                  {project.stack.map((tech, idx) => (
-                    <span
-                      key={idx}
-                      className="px-2 py-1 text-xs bg-teal-100 text-teal-700 font-medium rounded"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+                {/* Project Screenshot */}
+                <div className="w-full p-3 aspect-video bg-gray-100 overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={`${project.title} screenshot`}
+                    loading="lazy"
+                    className="w-full h-full object-cover object-top"
+                    onError={(e) => {
+                      e.currentTarget.onerror = null;
+                      e.currentTarget.src = "/My_portfolio/images/projects/placeholder.png";
+                    }}
+                  />
                 </div>
 
-                <p className="text-gray-700 text-sm leading-relaxed">
-                  {project.description.length > 130
-                    ? project.description.substring(0, 130) + "..."
-                    : project.description}
-                </p>
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold text-teal-600 mb-2">
+                    {project.title}
+                  </h3>
+
+                  <div className="flex flex-wrap gap-2 mb-3">
+                    {project.stack.map((tech, idx) => (
+                      <span
+                        key={idx}
+                        className="px-2 py-1 text-xs bg-teal-100 text-teal-700 font-medium rounded"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  <p className="text-gray-700 text-sm leading-relaxed">
+                    {project.description.length > 130
+                      ? project.description.substring(0, 130) + "..."
+                      : project.description}
+                  </p>
+                </div>
               </Link>
             ))}
           </div>
